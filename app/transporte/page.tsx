@@ -11,7 +11,7 @@ export default function TransportePage() {
       {/* Hero Section */}
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/transporte-hero.jpg"
+          src="/images/transporte/transporte.jpg"
           alt="Transporte en San Genaro"
           fill
           priority
