@@ -8,7 +8,7 @@ export default function SaludPage() {
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/salud-hero.jpg"
+          src="/images/salud/salud.jpg"
           alt="Salud en San Genaro"
           fill
           priority
