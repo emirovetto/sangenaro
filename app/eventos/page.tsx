@@ -1,6 +1,6 @@
 import Image from "next/image"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-import { Calendar } from "lucide-react"
+//import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+//import { Calendar } from "lucide-react"
 
 export default function EventosPage() {
   return (
