@@ -84,7 +84,7 @@ export default function InstitucionesPage() {
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/eventos/trigo.jpeg"
+          src="/images/instituciones/lago.jpg"
           alt="Instituciones en San Genaro"
           fill
           priority

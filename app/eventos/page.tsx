@@ -1,13 +1,13 @@
 import Image from "next/image"
-//import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
-//import { Calendar } from "lucide-react"
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
+import { Calendar } from "lucide-react"
 
 export default function EventosPage() {
   return (
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/eventos-hero.jpg"
+          src="/images/eventos/trigo.jpeg"
           alt="Eventos en San Genaro"
           fill
           priority
