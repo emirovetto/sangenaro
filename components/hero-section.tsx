@@ -10,7 +10,7 @@ const defaultMessages = [
   { id: "1", text: "🏥 Farmacia de turno: Farmacia Central - Av. San Martín 1234" },
   { id: "2", text: "🚌 Próximo colectivo a Rosario: 15:30 hs" },
   { id: "3", text: "📅 Evento: Feria Artesanal - Plaza San Martín - Domingo 10:00 hs" },
-  { id: "4", text: "⚕️ Guardia Hospital: Dr. González - Tel: 3476-123456" },
+  { id: "4", text: "⚕️ Guardia Hospital: - Tel: 3476-123456" },
   { id: "5", text: "🎭 Teatro Municipal: 'El Fantasma de la Ópera' - Sábado 21:00 hs" },
 ]
 
