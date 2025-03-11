@@ -30,6 +30,11 @@ export default function Footer() {
             <h3 className="text-xl font-bold mb-4">Enlaces Rápidos</h3>
             <ul className="space-y-2">
               <li>
+                <Link href="/alojamiento" className="text-gray-400 hover:text-white transition-colors">
+                  Alojamiento
+                </Link>
+              </li>
+              <li>
                 <Link href="/transporte" className="text-gray-400 hover:text-white transition-colors">
                   Transporte
                 </Link>
@@ -45,11 +50,6 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/instituciones" className="text-gray-400 hover:text-white transition-colors">
-                  Instituciones
-                </Link>
-              </li>
-              <li>
                 <Link href="/eventos" className="text-gray-400 hover:text-white transition-colors">
                   Eventos
                 </Link>
@@ -61,6 +61,21 @@ export default function Footer() {
           <div>
             <h3 className="text-xl font-bold mb-4">Servicios</h3>
             <ul className="space-y-2">
+              <li>
+                <Link href="/instituciones" className="text-gray-400 hover:text-white transition-colors">
+                  Instituciones
+                </Link>
+              </li>
+              <li>
+                <Link href="/medios" className="text-gray-400 hover:text-white transition-colors">
+                  Medios de Comunicación
+                </Link>
+              </li>
+              <li>
+                <Link href="/cooperativas" className="text-gray-400 hover:text-white transition-colors">
+                  Cooperativas de Servicios
+                </Link>
+              </li>
               <li>
                 <Link href="/horarios-colectivos" className="text-gray-400 hover:text-white transition-colors">
                   Horarios de Colectivos
@@ -74,11 +89,6 @@ export default function Footer() {
               <li>
                 <Link href="/telefonos-utiles" className="text-gray-400 hover:text-white transition-colors">
                   Teléfonos Útiles
-                </Link>
-              </li>
-              <li>
-                <Link href="/clima" className="text-gray-400 hover:text-white transition-colors">
-                  Clima
                 </Link>
               </li>
             </ul>

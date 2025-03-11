@@ -1,7 +1,30 @@
+"use client"
+
 import Image from "next/image"
 import { Search } from "lucide-react"
+import { useState } from "react"
+import { useRouter } from "next/navigation"
+import AnimatedBanner from "./animated-banner"
+
+const defaultMessages = [
+  { id: "1", text: "🏥 Farmacia de turno: Farmacia Central - Av. San Martín 1234" },
+  { id: "2", text: "🚌 Próximo colectivo a Rosario: 15:30 hs" },
+  { id: "3", text: "📅 Evento: Feria Artesanal - Plaza San Martín - Domingo 10:00 hs" },
+  { id: "4", text: "⚕️ Guardia Hospital: Dr. González - Tel: 3476-123456" },
+  { id: "5", text: "🎭 Teatro Municipal: 'El Fantasma de la Ópera' - Sábado 21:00 hs" },
+]
 
 export default function HeroSection() {
+  const [searchQuery, setSearchQuery] = useState("")
+  const [messages] = useState(defaultMessages)
+  const router = useRouter()
+
+  const handleSearch = (e: React.FormEvent) => {
+    e.preventDefault()
+    if (searchQuery.trim()) {
+      router.push(`/buscar?q=${encodeURIComponent(searchQuery.trim())}`)
+    }
+  }
   return (
     <div className="relative h-[70vh] w-full overflow-hidden">
       {/* Background Image */}
@@ -21,16 +44,24 @@ export default function HeroSection() {
         </p>
 
         {/* Search Bar */}
-        <div className="relative w-full max-w-md">
+        <form onSubmit={handleSearch} className="relative w-full max-w-md">
           <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
             <Search className="h-5 w-5 text-gray-400" />
           </div>
           <input
             type="text"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
             placeholder="Buscar servicios, lugares, horarios..."
-            className="w-full pl-10 pr-4 py-3 rounded-full border-none focus:ring-2 focus:ring-primary text-black"
+            className="w-full pl-10 pr-16 py-3 rounded-full border-none focus:ring-2 focus:ring-primary text-black"
           />
-        </div>
+          <button
+            type="submit"
+            className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-1.5 bg-primary text-white rounded-full hover:bg-primary/90 transition-colors"
+          >
+            Buscar
+          </button>
+        </form>
       </div>
     </div>
   )

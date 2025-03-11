@@ -5,19 +5,32 @@ import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { Menu, X, Sun, Moon } from "lucide-react"
 import { useTheme } from "next-themes"
+import AnimatedBanner from "./animated-banner"
+
+const defaultMessages = [
+  { id: "1", text: "🏥 Farmacia de turno: Farmacia Central - Av. San Martín 1234" },
+  { id: "2", text: "🚌 Próximo colectivo a Rosario: 15:30 hs" },
+  { id: "3", text: "📅 Evento: Feria Artesanal - Plaza San Martín - Domingo 10:00 hs" },
+  { id: "4", text: "⚕️ Guardia Hospital: Dr. González - Tel: 3476-123456" },
+  { id: "5", text: "🎭 Teatro Municipal: 'El Fantasma de la Ópera' - Sábado 21:00 hs" },
+]
 
 const navItems = [
   { name: "Inicio", href: "/" },
+  { name: "Alojamiento", href: "/alojamiento" },
   { name: "Transporte", href: "/transporte" },
   { name: "Gastronomía", href: "/gastronomia" },
   { name: "Salud", href: "/salud" },
   { name: "Instituciones", href: "/instituciones" },
+  { name: "Medios", href: "/medios" },
+  { name: "Cooperativas", href: "/cooperativas" },
   { name: "Eventos", href: "/eventos" },
   { name: "Contacto", href: "/contacto" },
 ]
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [messages] = useState(defaultMessages)
   const { theme, setTheme } = useTheme()
 
   const toggleTheme = () => {
@@ -83,6 +96,13 @@ export default function Header() {
           </nav>
         </div>
       )}
+
+      {/* Animated Banner */}
+      <div className="bg-blue-50 dark:bg-blue-900/20 border-b border-blue-100 dark:border-blue-800">
+        <div className="container mx-auto">
+          <AnimatedBanner messages={messages} speed={6000} />
+        </div>
+      </div>
     </header>
   )
 }
