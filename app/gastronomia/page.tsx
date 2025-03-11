@@ -93,7 +93,7 @@ export default function GastronomiaPage() {
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/food/Gastronomía.jpg"
+          src="/images/portadas/gastronomia.png"
           alt="Gastronomía en San Genaro"
           fill
           priority

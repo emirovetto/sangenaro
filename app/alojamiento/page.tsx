@@ -59,7 +59,7 @@ export default function AlojamientoPage() {
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/alojamiento/Alojamiento.jpg"
+          src="/images/portadas/alojamiento.png"
           alt="Alojamiento en San Genaro"
           fill
           priority

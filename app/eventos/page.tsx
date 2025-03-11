@@ -7,7 +7,7 @@ export default function EventosPage() {
     <main>
       <div className="relative h-[40vh] w-full overflow-hidden">
         <Image
-          src="/images/eventos/trigo.jpeg"
+          src="/images/portadas/eventos.png"
           alt="Eventos en San Genaro"
           fill
           priority

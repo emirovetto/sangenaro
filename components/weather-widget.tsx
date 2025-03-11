@@ -7,6 +7,11 @@ interface WeatherWidgetProps {
   city: string
 }
 
+interface WeatherData {
+  temp: number
+  condition: string
+}
+
 export default function WeatherWidget({ city }: WeatherWidgetProps) {
   const [weather, setWeather] = useState({
     temp: 0,
@@ -15,20 +20,46 @@ export default function WeatherWidget({ city }: WeatherWidgetProps) {
   })
 
   useEffect(() => {
-    // Simulación de API de clima
-    const fetchWeather = () => {
-      // En una implementación real, aquí se haría una llamada a una API de clima
-      setTimeout(() => {
+    const fetchWeather = async () => {
+      try {
+        const response = await fetch('https://www.wunderground.com/dashboard/pws/ISANGE129')
+        const html = await response.text()
+
+        // Extract temperature from HTML
+        const tempMatch = html.match(/"temperature":\s*(\d+\.?\d*)/)
+        const temp = tempMatch ? parseFloat(tempMatch[1]) : 0
+
+        // Extract condition from HTML
+        const conditionMatch = html.match(/"condition":\s*"([^"]+)"/) 
+        const condition = conditionMatch ? conditionMatch[1].toLowerCase() : 'sunny'
+
+        // Map the weather condition to our supported types
+        let mappedCondition = 'sunny'
+        if (condition.includes('cloud') || condition.includes('overcast')) {
+          mappedCondition = 'cloudy'
+        } else if (condition.includes('rain') || condition.includes('shower')) {
+          mappedCondition = 'rainy'
+        }
+
+        const roundedTemp = Math.round(temp)
+        console.log('Processed weather data:', { temp: roundedTemp, condition: mappedCondition })
+
         setWeather({
-          temp: Math.floor(Math.random() * 15) + 15, // Temperatura entre 15 y 30
-          condition: ["sunny", "cloudy", "rainy"][Math.floor(Math.random() * 3)],
+          temp: roundedTemp,
+          condition: mappedCondition,
           loading: false,
         })
-      }, 1000)
+      } catch (error) {
+        console.error('Error fetching weather data:', error)
+        setWeather(prev => ({ ...prev, loading: false }))
+      }
     }
 
     fetchWeather()
-  }, []) // Removed unnecessary dependency: city
+    // Fetch weather data every 5 minutes
+    const interval = setInterval(fetchWeather, 5 * 60 * 1000)
+    return () => clearInterval(interval)
+  }, [])
 
   if (weather.loading) {
     return <span>Cargando clima...</span>
